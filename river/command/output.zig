@@ -56,6 +56,7 @@ pub fn sendToOutput(
     if (args.len < 2) return Error.NotEnoughArguments;
     const result = flags.parser([:0]const u8, &.{
         .{ .name = "current-tags", .kind = .boolean },
+        .{ .name = "focus", .kind = .boolean },
     }).parse(args[1..]) catch {
         return error.InvalidOption;
     };
@@ -79,6 +80,10 @@ pub fn sendToOutput(
         }
 
         seat.focused.view.setPendingOutput(destination_output);
+
+        if (result.flags.focus) {
+            seat.focusOutput(destination_output);
+        }
 
         // When explicitly sending a view to an output, the user likely
         // does not expect a previously evacuated view moved back to a

@@ -68,12 +68,13 @@ necessarily disjunct), an analogy to workspaces.
 	Snap the focused view to the specified screen edge. The view will
 	be set to floating.
 
-*send-to-output* [*-current-tags*] *next*|*previous*|*up*|*right*|*down*|*left*|_name_
+*send-to-output* [*-current-tags*] [*-focus*] *next*|*previous*|*up*|*right*|*down*|*left*|_name_
 	Send the focused view to the next or previous output, the closest
 	output in any direction or to an output by name.
 
 	- *-current-tags*: Assign the currently focused tags of the destination
 	  output to the view.
+	- *-focus*: Focus the output containing the view after it has been moved.
 
 *spawn* _shell_command_
 	Run _shell_command_ using `/bin/sh -c _shell_command_`. Note that
