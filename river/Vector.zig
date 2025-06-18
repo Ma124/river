@@ -31,6 +31,14 @@ pub fn positionOfBox(box: wlr.Box) Vector {
     };
 }
 
+/// Returns the sum of two vectors.
+pub fn add(a: Vector, b: Vector) Vector {
+    return .{
+        .x = a.x + b.x,
+        .y = a.y + b.y,
+    };
+}
+
 /// Returns the difference between two vectors.
 pub fn diff(a: Vector, b: Vector) Vector {
     return .{

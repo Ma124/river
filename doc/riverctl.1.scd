@@ -50,10 +50,11 @@ necessarily disjunct), an analogy to workspaces.
 	Focus the next or previous output, the closest output in any direction
 	or an output by name.
 
-*focus-view* [*-skip-floating*] *next*|*previous*|*up*|*down*|*left*|*right*
+*focus-view* [*-cross-output*] [*-skip-floating*] *next*|*previous*|*up*|*down*|*left*|*right*
 	Focus the next or previous view in the stack or the closest view in
 	any direction.
 
+	- *-cross-output*: Cross output boundaries when following physical directions.
 	- *-skip-floating*: Skip floating views, only focusing tiled ones.
 
 *move* *up*|*down*|*left*|*right* _delta_
@@ -64,9 +65,11 @@ necessarily disjunct), an analogy to workspaces.
 	Resize the focused view along the given axis by _delta_ logical
 	pixels. The view will be set to floating.
 
-*snap* *up*|*down*|*left*|*right*
+*snap* [*-cross-output*] *up*|*down*|*left*|*right*
 	Snap the focused view to the specified screen edge. The view will
 	be set to floating.
+
+	- *-cross-output*: Cross output boundaries when following physical directions.
 
 *send-to-output* [*-current-tags*] [*-focus*] *next*|*previous*|*up*|*right*|*down*|*left*|_name_
 	Send the focused view to the next or previous output, the closest
