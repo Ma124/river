@@ -375,6 +375,7 @@ pub fn manageStart(seat: *Seat) void {
                 op.sent_release = true;
             }
         }
+        seat_v1.sendPointerPosition(@intFromFloat(seat.cursor.wlr_cursor.x), @intFromFloat(seat.cursor.wlr_cursor.y));
 
         {
             var it = seat.xkb_bindings.iterator(.forward);

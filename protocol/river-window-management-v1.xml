@@ -1356,18 +1356,28 @@
       </description>
     </event>
 
-    <event name="pointer_activity">
-      <description summary="the pointer was moved">
-        The seat's pointer was moved.
+    <event name="pointer_position">
+      <description summary="current pointer position">
+        This event is emitted before every manage_start event to inform the
+        window manager of the current pointer position.
 
-        Rationale: The motivating window manager feature for this event is the
-        "always" style of focus-follows-cursor. Carrying out a full manage
-        sequence on every single pointer motion event is noisy, wasteful, and
-        unnecessary.
+        Just moving the pointer does not necessarily trigger a new manage
+        sequence. As such, this event cannot be relied on, when live
+        information on the pointer position is needed. To receive live updates,
+        issue a op_start_pointer request and process the resulting op_delta
+        events.
+
+        Rationale: this event gives window managers the information necessary
+        to determine the focused output, as well as, to determine the position
+        of windows relative to the pointer. Sending this event on every pointer
+        movement would entail carrying out a full manage sequence, which would
+        be noisy, wasteful, and unnecessary.
 
         This event will be followed by a manage_start event after all other new
         state has been sent by the server.
       </description>
+      <arg name="x" type="int" summary="x position of the pointer" />
+      <arg name="y" type="int" summary="y position of the pointer" />
     </event>
 
     <event name="window_interaction">
